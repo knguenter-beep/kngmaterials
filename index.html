@@ -1,0 +1,1501 @@
+<!-- @startingPoint section="Website" subtitle="Dark industrial marketing site — rebrandable template" viewport="1440x900" -->
+<!-- @dsCard group="Website" viewport="1440x900" name="Marketing Site" subtitle="Dark industrial — full page" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KNG Materials Engineering Inc.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:        #f7f9fc;   /* steel-50 — page/section bg */
+    --bg2:       #ffffff;   /* white — cards, panels, inputs */
+    --bg3:       #f1f4f8;   /* steel-100 — alternating sections */
+    --border:    #dde2ea;   /* steel-200 */
+    --border2:   #c0c7d4;   /* steel-300 */
+    --text:      #16223d;   /* steel-900 */
+    --muted:     #56627a;   /* steel-600 */
+    --accent:    #008c97;   /* kng-teal */
+    --accent2:   #1aa3ae;   /* teal-500 */
+    --accent-dim:rgba(0,140,151,0.18);
+    --steel:     #73ac40;   /* kng-green */
+    --steel2:    #6cc6cd;   /* teal-300 */
+    --mono:      'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+    --sans:      'Poppins', 'Helvetica Neue', Arial, sans-serif;
+    --cond:      'Poppins', 'Helvetica Neue', Arial, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* ─── GRID OVERLAY ─── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(28,56,126,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(28,56,126,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 3rem;
+    height: 64px;
+    background: rgba(255,255,255,0.96);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(12px);
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+
+  .nav-logo img { height: 52px; width: auto; display: block; }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: var(--cond);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--accent); }
+
+  .nav-cta {
+    font-family: var(--cond);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border: 1px solid var(--accent-dim);
+    padding: 0.45rem 1.2rem;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .nav-cta:hover {
+    background: var(--accent);
+    color: #ffffff;
+  }
+
+  /* ─── HERO ─── */
+  #hero {
+    position: relative;
+    background: linear-gradient(150deg, #f7f9fc 50%, #e6f5f6 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 3rem 5rem;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .hero-bg svg { width: 100%; height: 100%; }
+
+  .hero-accent-line {
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 4px;
+    background: linear-gradient(to bottom, transparent, var(--accent) 30%, var(--accent) 70%, transparent);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+  }
+
+  .hero-eyebrow {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  h1 {
+    font-family: var(--cond);
+    font-size: clamp(3.5rem, 8vw, 7rem);
+    font-weight: 800;
+    line-height: 0.92;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    color: var(--text);
+    margin-bottom: 2rem;
+  }
+
+  h1 em {
+    font-style: normal;
+    color: var(--accent);
+    display: block;
+  }
+
+  .hero-desc {
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: var(--muted);
+    max-width: 560px;
+    margin-bottom: 2.5rem;
+    line-height: 1.75;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .btn-primary {
+    font-family: var(--cond);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #ffffff;
+    background: var(--accent);
+    padding: 0.85rem 2rem;
+    text-decoration: none;
+    transition: all 0.2s;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn-primary:hover { background: var(--accent2); }
+
+  .btn-ghost {
+    font-family: var(--cond);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.2s;
+  }
+
+  .btn-ghost:hover { color: var(--text); }
+
+  .hero-stats {
+    position: absolute;
+    right: 3rem;
+    bottom: 5rem;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    text-align: right;
+  }
+
+  .stat-num {
+    font-family: var(--cond);
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1;
+    display: block;
+  }
+
+  .stat-num span { color: var(--accent); }
+
+  .stat-label {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: block;
+    margin-top: 0.25rem;
+  }
+
+  /* ─── SECTION BASE ─── */
+  section { position: relative; z-index: 1; }
+
+  .section-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 6rem 3rem;
+  }
+
+  .section-label {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .section-label::before {
+    content: attr(data-num);
+    color: var(--border2);
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+
+  h2 {
+    font-family: var(--cond);
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: var(--text);
+    line-height: 1.05;
+    margin-bottom: 1rem;
+  }
+
+  h3 {
+    font-family: var(--cond);
+    font-weight: 600;
+    font-size: 1.15rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text);
+  }
+
+  /* ─── INTRO ─── */
+  #intro {
+    background: var(--bg3);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .intro-text p {
+    color: var(--muted);
+    line-height: 1.85;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+  }
+
+  .intro-text p strong { color: var(--text); font-weight: 400; }
+
+  .industries-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .ind-tag {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--steel2);
+    border: 1px solid rgba(0,140,151,0.35);
+    background: rgba(0,140,151,0.10);
+    padding: 0.3rem 0.7rem;
+  }
+
+  .p-eng-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    border: 1px solid var(--accent-dim);
+    padding: 1rem 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .p-eng-badge .badge-icon {
+    width: 36px;
+    height: 36px;
+    border: 2px solid var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--cond);
+    font-weight: 800;
+    font-size: 0.75rem;
+    color: var(--accent);
+    letter-spacing: 0.05em;
+  }
+
+  .badge-text {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .badge-text strong { color: var(--text); display: block; font-size: 0.72rem; }
+
+  .geo-panel {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    padding: 2rem;
+  }
+
+  .geo-title {
+    font-family: var(--cond);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .geo-regions { display: flex; flex-direction: column; gap: 0.5rem; }
+
+  .geo-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .geo-row:last-child { border-bottom: none; }
+
+  .geo-dot { width: 6px; height: 6px; background: var(--accent); flex-shrink: 0; }
+
+  .geo-region {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    flex: 1;
+  }
+
+  .geo-countries { font-size: 0.8rem; color: var(--text); font-weight: 300; }
+
+  /* ─── CAPABILITIES ─── */
+  #capabilities { background: var(--bg); }
+
+  .cap-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .cap-header-note {
+    font-size: 0.85rem;
+    color: var(--muted);
+    max-width: 280px;
+    text-align: right;
+    line-height: 1.6;
+  }
+
+  .cap-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+  }
+
+  .cap-card {
+    background: var(--bg2);
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.25s;
+    cursor: default;
+  }
+
+  .cap-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+
+  .cap-card:hover { background: var(--bg3); }
+  .cap-card:hover::before { transform: scaleX(1); }
+
+  .cap-num {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    color: var(--border2);
+    margin-bottom: 1.5rem;
+  }
+
+  .cap-icon { width: 40px; height: 40px; margin-bottom: 1.25rem; opacity: 0.7; }
+
+  .cap-card h3 { font-size: 1rem; margin-bottom: 1rem; color: var(--text); }
+
+  .cap-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.7; }
+
+  .cap-tags { margin-top: 1.25rem; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+
+  .cap-tag {
+    font-family: var(--mono);
+    font-size: 0.58rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border: 1px solid var(--accent-dim);
+    padding: 0.2rem 0.5rem;
+  }
+
+  /* ─── FIELD STRIP (photo references) ─── */
+  #field-strip {
+    background: #101f42;
+    padding: 3px 0;
+  }
+
+  .field-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 3px;
+  }
+
+  .field-tile {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    cursor: default;
+  }
+
+  .field-tile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(1) contrast(1.15) brightness(0.95) blur(3px);
+    transform: scale(1.06);
+    transition: transform 0.5s ease, filter 0.5s ease;
+  }
+
+  .field-tile::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(150deg, rgba(28,56,126,0.75), rgba(0,140,151,0.55));
+    mix-blend-mode: multiply;
+    transition: opacity 0.3s ease;
+  }
+
+  .field-tile:hover img { transform: scale(1.08); filter: grayscale(0.4) contrast(1.1) brightness(1) blur(0); }
+  .field-tile:hover::after { opacity: 0.55; }
+
+  /* ─── PROJECTS ─── */
+  #projects { background: var(--bg3); border-top: 1px solid var(--border); }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    margin-top: 3rem;
+  }
+
+  .project-card { background: var(--bg2); padding: 2.5rem; position: relative; }
+
+  .project-card.featured {
+    grid-column: span 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .project-tag {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .project-tag::before { content: ''; width: 16px; height: 1px; background: var(--accent); display: block; }
+
+  .project-card h3 { font-size: 1.35rem; letter-spacing: 0.04em; color: var(--text); margin-bottom: 0.75rem; }
+
+  .project-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.75; margin-bottom: 1.25rem; }
+
+  .project-specs { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 1.5rem; }
+
+  .spec-row {
+    display: flex;
+    gap: 1rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border);
+    align-items: baseline;
+  }
+
+  .spec-row:last-child { border-bottom: none; }
+
+  .spec-key {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    min-width: 110px;
+  }
+
+  .spec-val { color: var(--text); font-size: 0.82rem; }
+
+  /* ─── PROCESS ─── */
+  #process { background: var(--bg); border-top: 1px solid var(--border); }
+
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin-top: 3rem;
+    position: relative;
+  }
+
+  .process-steps::before {
+    content: '';
+    position: absolute;
+    top: 28px;
+    left: 12.5%;
+    right: 12.5%;
+    height: 1px;
+    background: var(--border2);
+    z-index: 0;
+  }
+
+  .process-step { padding: 0 1.5rem; position: relative; z-index: 1; }
+
+  .step-num-wrap {
+    width: 56px;
+    height: 56px;
+    border: 1px solid var(--border2);
+    background: var(--bg2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+
+  .step-num-wrap::after {
+    content: '';
+    position: absolute;
+    inset: 3px;
+    border: 1px solid var(--accent-dim);
+  }
+
+  .step-num { font-family: var(--cond); font-size: 1.2rem; font-weight: 700; color: var(--accent); }
+
+  .process-step h3 { font-size: 0.95rem; margin-bottom: 0.75rem; color: var(--text); }
+
+  .process-step p { font-size: 0.82rem; color: var(--muted); line-height: 1.7; }
+
+  /* ─── CONTACT ─── */
+  #contact { background: var(--bg); }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .contact-left p { color: var(--muted); line-height: 1.8; margin-bottom: 2rem; }
+
+  .contact-detail { display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem; }
+
+  .cd-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    border: 1px solid var(--border);
+    background: var(--bg2);
+  }
+
+  .cd-label {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    min-width: 80px;
+  }
+
+  .cd-value { color: var(--text); font-size: 0.88rem; }
+
+  .cd-value a { color: var(--accent); text-decoration: none; }
+
+  .contact-form { display: flex; flex-direction: column; gap: 1px; background: var(--border); }
+
+  .form-field {
+    background: var(--bg2);
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .form-field label {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .form-field input,
+  .form-field select,
+  .form-field textarea {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 0.95rem;
+    font-weight: 300;
+    width: 100%;
+    resize: none;
+  }
+
+  .form-field select option { background: var(--bg2); color: var(--text); }
+
+  .form-field textarea { min-height: 100px; }
+
+  .form-submit {
+    background: var(--bg2);
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .form-note { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.1em; color: var(--muted); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--bg3);
+    border-top: 1px solid var(--border);
+    padding: 2rem 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-logo {
+    font-family: var(--cond);
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .footer-logo span { color: var(--accent); }
+
+  .footer-copy {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  .footer-links { display: flex; gap: 2rem; list-style: none; }
+
+  .footer-links a {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--accent); }
+
+  /* ─── TICKER ─── */
+  .ticker { background: var(--accent); padding: 0.5rem 0; overflow: hidden; white-space: nowrap; }
+
+  .ticker-inner { display: inline-flex; animation: ticker 28s linear infinite; }
+
+  .ticker-item {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #ffffff;
+    padding: 0 3rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .ticker-item::after { content: '//'; opacity: 0.5; }
+
+  .chem { font-family: var(--mono); font-size: 0.9em; color: var(--steel2); }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes ticker {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  .hero-content > * { animation: fadeUp 0.7s ease both; }
+  .hero-eyebrow { animation-delay: 0.1s; }
+  h1            { animation-delay: 0.25s; }
+  .hero-desc    { animation-delay: 0.4s; }
+  .hero-actions { animation-delay: 0.55s; }
+  .hero-stats   { animation: fadeUp 0.7s 0.6s ease both; }
+
+  /* Hero text — dark on light background */
+  #hero h1          { color: #1c387e; }
+  #hero h1 em       { color: var(--accent); }
+  .hero-desc        { color: var(--muted); }
+  .hero-eyebrow     { color: var(--accent); }
+  .stat-num         { color: #1c387e; }
+  .stat-num span    { color: var(--accent); }
+  .stat-label       { color: var(--muted); }
+  .btn-ghost        { color: var(--muted); }
+  .btn-ghost:hover  { color: var(--text); }
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo"><img src="assets/kng-logo-full.png" alt="KNG Materials Engineering Inc."></a>
+  <ul class="nav-links">
+    <li><a href="#intro">About</a></li>
+    <li><a href="#capabilities">Capabilities</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#process">Process</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Engage</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg">
+    <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <pattern id="smallgrid" width="40" height="40" patternUnits="userSpaceOnUse">
+          <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(28,56,126,0.05)" stroke-width="0.5"/>
+        </pattern>
+        <pattern id="grid" width="200" height="200" patternUnits="userSpaceOnUse">
+          <rect width="200" height="200" fill="url(#smallgrid)"/>
+          <path d="M 200 0 L 0 0 0 200" fill="none" stroke="rgba(28,56,126,0.07)" stroke-width="1"/>
+        </pattern>
+      </defs>
+      <rect width="1440" height="900" fill="transparent"/>
+      <rect width="1440" height="900" fill="url(#grid)"/>
+      <line x1="900" y1="0" x2="1440" y2="600" stroke="rgba(0,140,151,0.14)" stroke-width="1.5"/>
+      <line x1="1050" y1="0" x2="1440" y2="450" stroke="rgba(0,140,151,0.09)" stroke-width="1"/>
+      <line x1="1200" y1="0" x2="1440" y2="300" stroke="rgba(0,140,151,0.06)" stroke-width="1"/>
+      <line x1="0" y1="300" x2="1440" y2="300" stroke="rgba(28,56,126,0.06)" stroke-width="0.5"/>
+      <line x1="0" y1="600" x2="1440" y2="600" stroke="rgba(28,56,126,0.06)" stroke-width="0.5"/>
+      <rect x="1100" y="0" width="340" height="900" fill="rgba(0,140,151,0.03)"/>
+      <line x1="1100" y1="0" x2="1100" y2="900" stroke="rgba(0,140,151,0.18)" stroke-width="1"/>
+      <circle cx="1270" cy="200" r="60" fill="none" stroke="rgba(0,140,151,0.10)" stroke-width="1"/>
+      <circle cx="1270" cy="200" r="40" fill="none" stroke="rgba(0,140,151,0.14)" stroke-width="0.5"/>
+      <line x1="1210" y1="200" x2="1100" y2="200" stroke="rgba(0,140,151,0.14)" stroke-width="0.5"/>
+      <line x1="1270" y1="140" x2="1270" y2="0" stroke="rgba(0,140,151,0.14)" stroke-width="0.5"/>
+      <rect x="0" y="840" width="1440" height="60" fill="rgba(0,140,151,0.04)"/>
+    </svg>
+  </div>
+  <div class="hero-accent-line"></div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">KNG Materials Engineering Inc. — Coquitlam, BC</div>
+    <h1>Engineered for<em>Extreme Service.</em></h1>
+    <p class="hero-desc">Independent P.Eng. consultancy specializing in corrosion engineering, materials selection, and materials testing design and verification for the chemical processing, energy, and mining industries. Twenty-plus years solving problems that can't afford to fail.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Start a Project</a>
+      <a href="#capabilities" class="btn-ghost">View Capabilities →</a>
+    </div>
+  </div>
+
+  <div class="hero-stats">
+    <div class="stat-item">
+      <span class="stat-num">20<span>+</span></span>
+      <span class="stat-label">Years Experience</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">4</span>
+      <span class="stat-label">Continents Served</span>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-inner">
+    <span class="ticker-item">Sulfuric Acid Plant Design</span>
+    <span class="ticker-item">High-Silicon Stainless Steel</span>
+    <span class="ticker-item">Anodic Protection Systems</span>
+    <span class="ticker-item">Hydrometallurgical Refurbishment</span>
+    <span class="ticker-item">Electrochemical Testing</span>
+    <span class="ticker-item">ASME Pressure Equipment</span>
+    <span class="ticker-item">Failure Analysis</span>
+    <span class="ticker-item">Corrosion Engineering</span>
+    <span class="ticker-item">Sulfuric Acid Plant Design</span>
+    <span class="ticker-item">High-Silicon Stainless Steel</span>
+    <span class="ticker-item">Anodic Protection Systems</span>
+    <span class="ticker-item">Hydrometallurgical Refurbishment</span>
+    <span class="ticker-item">Electrochemical Testing</span>
+    <span class="ticker-item">ASME Pressure Equipment</span>
+    <span class="ticker-item">Failure Analysis</span>
+    <span class="ticker-item">Corrosion Engineering</span>
+  </div>
+</div>
+
+<!-- INTRO -->
+<section id="intro">
+  <div class="section-inner">
+    <div class="intro-grid">
+      <div class="intro-text">
+        <div class="section-label" data-num="01">About</div>
+        <h2>Senior Expertise.<br>Direct Access.</h2>
+        <p style="margin-top:1.5rem">A principal-led consultancy, run by a registered Professional Engineer with deep roots in <strong>corrosion science, materials testing design and verification, and field inspection</strong>. Direct access to senior expertise — not a junior intermediary.</p>
+        <p>Whether validating a new alloy for concentrated sulfuric acid service or managing NDE programs for a greenfield lithium mine acid plant, the work is done by the engineer who signs the report.</p>
+        <div class="industries-list">
+          <span class="ind-tag">Chemical Processing</span>
+          <span class="ind-tag">Copper / Nickel Mining</span>
+          <span class="ind-tag">Lithium Mining</span>
+          <span class="ind-tag">Fertilizer</span>
+          <span class="ind-tag">Oil &amp; Gas</span>
+          <span class="ind-tag">Water Utilities</span>
+          <span class="ind-tag">Hydrogen Fuel Cells</span>
+          <span class="ind-tag">Pulp &amp; Paper</span>
+          <span class="ind-tag">Chlor-Alkali</span>
+          <span class="ind-tag">Bio-Refinery</span>
+        </div>
+        <div class="p-eng-badge">
+          <div class="badge-icon">P.Eng</div>
+          <div class="badge-text">
+            <strong>Registered Professional Engineer</strong>
+            British Columbia — Materials &amp; Metallurgical Engineering
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="geo-panel">
+          <div class="geo-title">Geographic Coverage</div>
+          <div class="geo-regions">
+            <div class="geo-row">
+              <div class="geo-dot"></div>
+              <div class="geo-region">Americas</div>
+              <div class="geo-countries">Canada, USA, Mexico, Chile</div>
+            </div>
+            <div class="geo-row">
+              <div class="geo-dot"></div>
+              <div class="geo-region">Africa</div>
+              <div class="geo-countries">Morocco, Madagascar</div>
+            </div>
+            <div class="geo-row">
+              <div class="geo-dot"></div>
+              <div class="geo-region">Asia-Pacific</div>
+              <div class="geo-countries">Vietnam, China, Malaysia, Korea, New Caledonia</div>
+            </div>
+            <div class="geo-row">
+              <div class="geo-dot"></div>
+              <div class="geo-region">Middle East</div>
+              <div class="geo-countries">Saudi Arabia</div>
+            </div>
+            <div class="geo-row">
+              <div class="geo-dot"></div>
+              <div class="geo-region">Europe</div>
+              <div class="geo-countries">Portugal, UK, France, Germany, Turkey</div>
+            </div>
+          </div>
+          <div style="margin-top:1.25rem; padding-top:1rem; border-top:1px solid var(--border); font-family:var(--mono); font-size:0.68rem; letter-spacing:0.05em; color:var(--muted); line-height:1.6;">
+            Engagements above reflect completed project work — additional regions taken on wherever the service conditions warrant travel.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAPABILITIES -->
+<section id="capabilities">
+  <div class="section-inner">
+    <div class="cap-header">
+      <div class="cap-header-text">
+        <div class="section-label" data-num="02">Capabilities</div>
+        <h2>Technical Services</h2>
+      </div>
+      <p class="cap-header-note">Materials and corrosion engineering from electrochemical bench testing to international field deployment.</p>
+    </div>
+
+    <div class="cap-grid">
+
+      <div class="cap-card">
+        <div class="cap-num">CAP-01</div>
+        <svg class="cap-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="4" y="28" width="32" height="6" stroke="#008c97" stroke-width="1.5"/>
+          <path d="M8 28 L8 16 M32 28 L32 16" stroke="#008c97" stroke-width="1.5"/>
+          <path d="M8 16 Q20 6 32 16" stroke="#008c97" stroke-width="1.5" stroke-dasharray="3 2"/>
+          <circle cx="20" cy="20" r="3" fill="#008c97" opacity="0.6"/>
+        </svg>
+        <h3>Corrosion Engineering &amp; Materials Selection</h3>
+        <p>Alloy evaluation across the full chemical spectrum — sulfuric, hydrochloric, hydrofluoric, nitric, phosphoric acids, caustic, chlorine, mononitrobenzene (MNB), and organics.</p>
+        <div class="cap-tags">
+          <span class="cap-tag">High-Si Stainless</span>
+          <span class="cap-tag">Super-Duplex</span>
+          <span class="cap-tag">High-Ni Alloys</span>
+          <span class="cap-tag">FRP / Linings</span>
+          <span class="cap-tag">MNB</span>
+        </div>
+      </div>
+
+      <div class="cap-card">
+        <div class="cap-num">CAP-02</div>
+        <svg class="cap-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="6" y="6" width="28" height="28" stroke="#008c97" stroke-width="1.5"/>
+          <path d="M12 20 L17 25 L28 14" stroke="#008c97" stroke-width="1.5"/>
+          <line x1="6" y1="14" x2="34" y2="14" stroke="#008c97" stroke-width="0.5" stroke-dasharray="2 2"/>
+        </svg>
+        <h3>QA ASME PRESSURE EQUIPMENT</h3>
+        <p>Quality assurance program development, and complete quality package management for ASME-stamped and specialty equipment.</p>
+        <div class="cap-tags">
+          <span class="cap-tag">ASME BPVC</span>
+          <span class="cap-tag">Radiography</span>
+          <span class="cap-tag">UT / PT</span>
+          <span class="cap-tag">Weld Maps</span>
+        </div>
+      </div>
+
+      <div class="cap-card">
+        <div class="cap-num">CAP-03</div>
+        <svg class="cap-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="17" cy="17" r="10" stroke="#008c97" stroke-width="1.5"/>
+          <line x1="24.5" y1="24.5" x2="34" y2="34" stroke="#008c97" stroke-width="1.5"/>
+          <path d="M12 18 L15 21 L22 13" stroke="#008c97" stroke-width="1.2"/>
+        </svg>
+        <h3>Site Assessment &amp; Failure Analysis</h3>
+        <p>On-site condition assessment and root-cause failure investigation for equipment operating in severe service. Managing testing and inspection performed by accredited labs, delivering remaining-life evaluation.</p>
+        <div class="cap-tags">
+          <span class="cap-tag">Site Assessment</span>
+          <span class="cap-tag">Failure Analysis</span>
+          <span class="cap-tag">Root-Cause</span>
+          <span class="cap-tag">Remaining Life</span>
+        </div>
+      </div>
+
+      <div class="cap-card">
+        <div class="cap-num">CAP-04</div>
+        <svg class="cap-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="6" y="10" width="28" height="20" stroke="#008c97" stroke-width="1.5"/>
+          <line x1="6" y1="18" x2="34" y2="18" stroke="#008c97" stroke-width="1" stroke-dasharray="2 2"/>
+          <line x1="18" y1="10" x2="18" y2="30" stroke="#008c97" stroke-width="1" stroke-dasharray="2 2"/>
+          <circle cx="12" cy="14" r="2" fill="#008c97" opacity="0.7"/>
+          <circle cx="28" cy="24" r="2" fill="#008c97" opacity="0.4"/>
+        </svg>
+        <h3>Sulfuric Acid Plant Equipment</h3>
+        <p>Corrosion engineering, materials selection, and procurement QA for gas-to-gas heat exchangers, absorption towers, converters, sulfur furnaces, and peripheral systems. Factory acceptance testing, and international fabrication supervision.</p>
+        <div class="cap-tags">
+          <span class="cap-tag">Absorption Towers</span>
+          <span class="cap-tag">Converters</span>
+          <span class="cap-tag">Heat Exchangers</span>
+          <span class="cap-tag">FAT</span>
+        </div>
+      </div>
+
+      <div class="cap-card">
+        <div class="cap-num">CAP-05</div>
+        <svg class="cap-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="5" y="5" width="30" height="30" stroke="#008c97" stroke-width="1.5"/>
+          <line x1="5" y1="15" x2="35" y2="15" stroke="#008c97" stroke-width="0.75" stroke-dasharray="2 2"/>
+          <line x1="5" y1="25" x2="35" y2="25" stroke="#008c97" stroke-width="0.75" stroke-dasharray="2 2"/>
+          <line x1="15" y1="5" x2="15" y2="35" stroke="#008c97" stroke-width="0.75" stroke-dasharray="2 2"/>
+          <line x1="25" y1="5" x2="25" y2="35" stroke="#008c97" stroke-width="0.75" stroke-dasharray="2 2"/>
+          <path d="M8 28 L15 20 L20 24 L32 10" stroke="#008c97" stroke-width="1.75"/>
+        </svg>
+        <h3>Anodic Protection &amp; Electrochemistry</h3>
+        <p>Design, troubleshooting, and field diagnostics for AP-controlled stainless steel equipment in strong sulfuric acid. Potentiodynamic, cyclic polarization, and chronoamperometry. Electrochemical studies of fuel cell plate degradation and materials evaluation.</p>
+        <div class="cap-tags">
+          <span class="cap-tag">Anodic Protection</span>
+          <span class="cap-tag">Potentiodynamic</span>
+          <span class="cap-tag">Electrochemical Studies</span>
+          <span class="cap-tag">Fuel Cell Plate Degradation</span>
+        </div>
+      </div>
+
+      <div class="cap-card">
+        <div class="cap-num">CAP-06</div>
+        <svg class="cap-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 32 L8 12 L20 8 L32 12 L32 32" stroke="#008c97" stroke-width="1.5"/>
+          <line x1="8" y1="32" x2="32" y2="32" stroke="#008c97" stroke-width="1.5"/>
+          <path d="M14 32 L14 22 L20 20 L26 22 L26 32" stroke="#008c97" stroke-width="1"/>
+        </svg>
+        <h3>Hydrometallurgy &amp; Mining Projects</h3>
+        <p>Leach circuit refurbishment in high-chloride, low-pH environments. Materials Selection for corrosive high wear mining environments.</p>
+        <div class="cap-tags">
+          <span class="cap-tag">Leach Circuits</span>
+          <span class="cap-tag">Failure Analysis</span>
+          <span class="cap-tag">UT</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FIELD STRIP -->
+<section id="field-strip">
+  <div class="field-grid">
+    <div class="field-tile"><img src="assets/field/01-tube-sheet-nde.jpg" alt=""></div>
+    <div class="field-tile"><img src="assets/field/02-electrochemical-cell.jpg" alt=""></div>
+    <div class="field-tile"><img src="assets/field/03-hx-interior.jpg" alt=""></div>
+    <div class="field-tile"><img src="assets/field/04-vessel-transport.jpg" alt=""></div>
+    <div class="field-tile"><img src="assets/field/05-crack-macro.jpg" alt=""></div>
+    <div class="field-tile"><img src="assets/field/06-tube-sheet-holes.jpg" alt=""></div>
+    <div class="field-tile"><img src="assets/field/07-weld-seam-marked.jpg" alt=""></div>
+    <div class="field-tile"><img src="assets/field/08-fabrication-yard.jpg" alt=""></div>
+    <div class="field-tile"><img src="assets/field/09-weld-grain-macro.jpg" alt=""></div>
+    <div class="field-tile"><img src="assets/field/10-impeller-casting.jpg" alt=""></div>
+    <div class="field-tile"><img src="assets/field/11-washers-macro.jpg" alt=""></div>
+    <div class="field-tile"><img src="assets/field/12-pipe-interior.jpg" alt=""></div>
+  </div>
+</section>
+
+<!-- FEATURED PROJECTS -->
+<section id="projects">
+  <div class="section-inner">
+    <div class="section-label" data-num="03">Selected Projects</div>
+    <h2>Proven in the Field</h2>
+
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <div class="project-tag">QA / NDE — Lithium Mining</div>
+        <h3>Greenfield Acid Plant — Lithium Mine</h3>
+        <p>NDE program and quality package management for a greenfield sulfuric acid plant at a lithium mine. Equipment quality inspection, and coordination Third Party oversea's Inspection for pressure vessels and piping systems.</p>
+        <div class="project-specs">
+          <div class="spec-row">
+            <span class="spec-key">Standard</span>
+            <span class="spec-val">ASME BPVC — full quality package</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-key">Scope</span>
+            <span class="spec-val">Greenfield plant, Sulfuric Acid Equipment</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-tag">Hydrometallurgy / Southeast Asia</div>
+        <h3>Bismuth Leach Circuit Refurbishment</h3>
+        <p>Full materials assessment and replacement program for high-chloride, low-pH leach environment, replacing failed super-duplex piping &amp; equipment with non-metallic material solutions.</p>
+        <div class="project-specs">
+          <div class="spec-row">
+            <span class="spec-key">Environment</span>
+            <span class="spec-val">High-Cl⁻, low-pH bismuth leach</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-key">Materials</span>
+            <span class="spec-val">Hastelloy C22, FRP, rubber-lined CS</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-tag">Electrochemical / Fuel Cells</div>
+        <h3>Fuel Cell Separator Evaluation</h3>
+        <p>Electrochemical evaluation and testing of fuel cell separator plates, including degradation assessment and coatings selection for extended service life. Potentiodynamic and cyclic polarization testing to verify candidate coating performance.</p>
+        <div class="project-specs">
+          <div class="spec-row">
+            <span class="spec-key">Focus</span>
+            <span class="spec-val">Separator degradation, coatings selection</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-key">Scope</span>
+            <span class="spec-val">Electrochemical evaluation, testing</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-tag">Mixed Acid / Chemical Processing</div>
+        <h3>Mononitrobenzene Nitration</h3>
+        <p>Materials selection and corrosion verification for a continuous mixed-acid nitration reactor producing mononitrobenzene, the aniline precursor. Equipment quality management for glass-lined steel and tantalum equipment and corrosion solutions for mixed-acid high alloy pumps.</p>
+        <div class="project-specs">
+          <div class="spec-row">
+            <span class="spec-key">Materials</span>
+            <span class="spec-val">Glass-lined steel, tantalum</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-key">Service</span>
+            <span class="spec-val">HNO₃/H₂SO₄ mixed acid, 60–90°C</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card featured">
+        <div>
+          <div class="project-tag">Sulfuric Acid / Global</div>
+          <h3>Multi-Site H₂SO₄ Plant Equipment</h3>
+          <p>Fully-welded high-silicon stainless steel absorption towers, gas-to-gas heat exchangers, and peripheral acid-service equipment. Anodic protection systems and high-temperature alloys for gas handling. Multiple international installations.</p>
+        </div>
+        <div class="project-specs">
+          <div class="spec-row">
+            <span class="spec-key">Materials</span>
+            <span class="spec-val">High-silicon stainless steels, high-temperature alloys</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-key">Service</span>
+            <span class="spec-val">92–99.5% H₂SO₄ up to 120°C</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-key">Scope</span>
+            <span class="spec-val">Design, FAT, fabrication supervision, commissioning, anodic protection</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-key">Regions</span>
+            <span class="spec-val">North America, South America, Asia-Pacific, Africa</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="section-inner">
+    <div class="section-label" data-num="04">How We Work</div>
+    <h2>Engagement Process</h2>
+
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="step-num-wrap"><span class="step-num">01</span></div>
+        <h3>Technical Brief</h3>
+        <p>Scope definition, service environment characterization, and identification of failure modes of concern.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num-wrap"><span class="step-num">02</span></div>
+        <h3>Engineering Assessment</h3>
+        <p>Materials screening, corrosion analysis, corrosion testing plans, and vendor/fabricator review.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num-wrap"><span class="step-num">03</span></div>
+        <h3>Design &amp; Specification</h3>
+        <p>Procurement specs, welding procedures, QA requirements, and site deployment planning.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num-wrap"><span class="step-num">04</span></div>
+        <h3>Field Support</h3>
+        <p>Fabrication inspection, FAT, commissioning support, site condition assessments, and corrosion assessment.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="contact-grid">
+      <div class="contact-left">
+        <div class="section-label" data-num="05">Contact</div>
+        <h2>Bring Your<br>Hardest Problem.</h2>
+        <p>Severe-service environments, unusual alloys, equipment that's failing in ways nobody can explain — that's the work this firm is built for. Engagements range from technical reviews to multi-year project support.</p>
+        <div class="contact-detail">
+          <div class="cd-row">
+            <span class="cd-label">Firm</span>
+            <span class="cd-value">KNG Materials Engineering Inc.</span>
+          </div>
+          <div class="cd-row">
+            <span class="cd-label">Location</span>
+            <span class="cd-value">Coquitlam, British Columbia, Canada</span>
+          </div>
+          <div class="cd-row">
+            <span class="cd-label">Email</span>
+            <span class="cd-value"><a href="mailto:info@kngmaterials.com">info@kngmaterials.com</a></span>
+          </div>
+          <div class="cd-row">
+            <span class="cd-label">Designation</span>
+            <span class="cd-value">P.Eng. — Materials &amp; Metallurgical Engineering</span>
+          </div>
+        </div>
+      </div>
+
+      <div id="contact-form-root"></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo"><img src="assets/kng-logo-full.png" alt="KNG Materials Engineering Inc." style="height:28px; opacity:0.7;"></div>
+  <ul class="footer-links">
+    <li><a href="#capabilities">Capabilities</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="footer-copy">© 2026 KNG Materials Engineering Inc. — Coquitlam, BC</div>
+</footer>
+
+<script>
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(a => a.style.color = '');
+        const active = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
+        if (active) active.style.color = 'var(--accent)';
+      }
+    });
+  }, { rootMargin: '-40% 0px -55% 0px' });
+
+  sections.forEach(s => observer.observe(s));
+
+  const fadeEls = document.querySelectorAll('.cap-card, .project-card, .process-step');
+  const fadeObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  fadeEls.forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(16px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    fadeObs.observe(el);
+  });
+</script>
+
+<!-- React + EmailJS contact form -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">
+  // ─── EmailJS config ───────────────────────────────────────────────────────
+  // 1. Sign up free at https://www.emailjs.com
+  // 2. Create a service (Gmail, Outlook, SMTP) and note the Service ID
+  // 3. Create an email template — use variables: {{from_name}}, {{from_company}},
+  //    {{from_email}}, {{project_type}}, {{message}}. Set To: info@kngmaterials.com
+  // 4. Copy your Public Key from Account → API Keys
+  // 5. Replace the three placeholder strings below
+  const EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID';
+  const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
+  const EMAILJS_PUBLIC_KEY  = 'YOUR_PUBLIC_KEY';
+
+  emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+
+  const SERVICE_TYPES = [
+    'Corrosion Engineering / Materials Selection',
+    'Sulfuric Acid Plant Equipment',
+    'Hydrometallurgy / Mining',
+    'Failure Analysis',
+    'Welding Engineering',
+    'QA / NDE / ASME',
+    'Electrochemical Testing',
+    'Other',
+  ];
+
+  function ContactForm() {
+    const [form, setForm] = React.useState({
+      name: '', company: '', email: '', type: '', message: ''
+    });
+    const [errors, setErrors]   = React.useState({});
+    const [status, setStatus]   = React.useState('idle'); // idle | submitting | success | error
+
+    const update = (field) => (e) =>
+      setForm(f => ({ ...f, [field]: e.target.value }));
+
+    const validate = () => {
+      const e = {};
+      if (!form.name.trim())    e.name    = 'Required';
+      if (!form.email.trim())   e.email   = 'Required';
+      else if (!/\S+@\S+\.\S+/.test(form.email)) e.email = 'Invalid email';
+      if (!form.message.trim()) e.message = 'Required';
+      return e;
+    };
+
+    const submit = async (e) => {
+      e.preventDefault();
+      const errs = validate();
+      if (Object.keys(errs).length) { setErrors(errs); return; }
+      setErrors({});
+      setStatus('submitting');
+
+      try {
+        await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+          from_name:    form.name,
+          from_company: form.company,
+          from_email:   form.email,
+          project_type: form.type || 'Not specified',
+          message:      form.message,
+        });
+        setStatus('success');
+        setForm({ name: '', company: '', email: '', type: '', message: '' });
+      } catch (err) {
+        console.error(err);
+        setStatus('error');
+      }
+    };
+
+    const fieldStyle = (key) => ({
+      outline: errors[key] ? '1px solid #c0392b' : 'none',
+    });
+
+    if (status === 'success') {
+      return (
+        <div style={{
+          background: 'var(--bg2)', border: '1px solid var(--border)',
+          padding: '2.5rem', textAlign: 'center'
+        }}>
+          <div style={{
+            width: 48, height: 48, borderRadius: '50%',
+            background: 'rgba(0,140,151,0.1)', border: '1px solid rgba(0,140,151,0.4)',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            margin: '0 auto 1.25rem', fontSize: '1.25rem'
+          }}>✓</div>
+          <p style={{ fontFamily: 'var(--cond)', fontWeight: 600, fontSize: '1.1rem', color: 'var(--text)', marginBottom: '0.5rem', letterSpacing: '0.04em', textTransform: 'uppercase' }}>
+            Enquiry Sent
+          </p>
+          <p style={{ fontFamily: 'var(--mono)', fontSize: '0.72rem', color: 'var(--muted)', letterSpacing: '0.1em' }}>
+            We'll be in touch directly.
+          </p>
+          <button
+            onClick={() => setStatus('idle')}
+            style={{ marginTop: '1.5rem', background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'var(--mono)', fontSize: '0.65rem', color: 'var(--accent)', letterSpacing: '0.15em', textTransform: 'uppercase' }}
+          >
+            Send another →
+          </button>
+        </div>
+      );
+    }
+
+    return (
+      <form onSubmit={submit} noValidate style={{ display: 'flex', flexDirection: 'column', gap: 1, background: 'var(--border)' }}>
+        {[
+          { key: 'name',    label: 'Full Name',  type: 'text',  placeholder: 'Your name' },
+          { key: 'company', label: 'Company',    type: 'text',  placeholder: 'Organization' },
+          { key: 'email',   label: 'Email',      type: 'email', placeholder: 'your@company.com' },
+        ].map(({ key, label, type, placeholder }) => (
+          <div key={key} className="form-field" style={fieldStyle(key)}>
+            <label>{label}{errors[key] && <span style={{ color: '#c0392b', marginLeft: 6, fontWeight: 400 }}>— {errors[key]}</span>}</label>
+            <input type={type} value={form[key]} onChange={update(key)} placeholder={placeholder} />
+          </div>
+        ))}
+
+        <div className="form-field">
+          <label>Project Type</label>
+          <select value={form.type} onChange={update('type')}>
+            <option value="">Select a service area…</option>
+            {SERVICE_TYPES.map(t => <option key={t}>{t}</option>)}
+          </select>
+        </div>
+
+        <div className="form-field" style={fieldStyle('message')}>
+          <label>Brief Description{errors.message && <span style={{ color: '#c0392b', marginLeft: 6, fontWeight: 400 }}>— {errors.message}</span>}</label>
+          <textarea
+            value={form.message}
+            onChange={update('message')}
+            placeholder="Describe your environment, materials of concern, and what you need…"
+          />
+        </div>
+
+        <div className="form-submit">
+          <span className="form-note">
+            {status === 'error'
+              ? <span style={{ color: '#c0392b' }}>Send failed — please try again.</span>
+              : 'Direct response from the engineer.'}
+          </span>
+          <button className="btn-primary" type="submit" disabled={status === 'submitting'}>
+            {status === 'submitting' ? 'Sending…' : 'Send Enquiry →'}
+          </button>
+        </div>
+      </form>
+    );
+  }
+
+  ReactDOM.createRoot(document.getElementById('contact-form-root')).render(<ContactForm />);
+</script>
+</body>
+</html>
