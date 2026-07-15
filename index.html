@@ -6,6 +6,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>KNG Materials Engineering Inc.</title>
+<meta name="description" content="Independent P.Eng. consultancy in Coquitlam, BC specializing in corrosion engineering, materials selection, and materials testing design and verification for the chemical processing, energy, and mining industries.">
+<link rel="canonical" href="https://www.kngmaterials.com/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="KNG Materials Engineering Inc.">
+<meta property="og:description" content="Independent P.Eng. consultancy specializing in corrosion engineering, materials selection, and materials testing design and verification for the chemical processing, energy, and mining industries.">
+<meta property="og:url" content="https://www.kngmaterials.com/">
+<meta property="og:image" content="https://www.kngmaterials.com/assets/kng-logo-full.png">
+<meta property="og:locale" content="en_CA">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="KNG Materials Engineering Inc.">
+<meta name="twitter:description" content="Independent P.Eng. consultancy specializing in corrosion engineering, materials selection, and materials testing for chemical processing, energy, and mining.">
+<meta name="twitter:image" content="https://www.kngmaterials.com/assets/kng-logo-full.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@300;400&display=swap" rel="stylesheet">
@@ -834,7 +846,63 @@
   .btn-ghost        { color: var(--muted); }
   .btn-ghost:hover  { color: var(--text); }
 
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    .section-inner { padding: 4rem 1.5rem; }
+    #hero { padding: 0 1.5rem 4rem; }
+    .intro-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .cap-grid { grid-template-columns: repeat(2, 1fr); }
+    .cap-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+    .cap-header-note { text-align: left; max-width: 100%; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .project-card.featured { grid-column: span 1; grid-template-columns: 1fr; gap: 1.5rem; }
+    .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .process-steps { grid-template-columns: repeat(2, 1fr); row-gap: 3rem; }
+    .process-steps::before { display: none; }
+    .field-grid { grid-template-columns: repeat(3, 1fr); }
+    .hero-stats { position: static; flex-direction: row; justify-content: space-between; text-align: left; margin-top: 3rem; gap: 1.5rem; }
+  }
+
+  @media (max-width: 640px) {
+    nav { padding: 0.75rem 1.25rem; height: auto; flex-wrap: wrap; row-gap: 0.75rem; }
+    .nav-links { gap: 1.1rem; flex-wrap: wrap; order: 3; width: 100%; justify-content: center; }
+    .nav-links a { font-size: 0.7rem; }
+    #hero { min-height: auto; padding-top: 7rem; }
+    h1 { font-size: clamp(2.5rem, 12vw, 4rem); }
+    .hero-actions { flex-direction: column; align-items: flex-start; gap: 1rem; }
+    .hero-stats { flex-direction: column; align-items: flex-start; text-align: left; gap: 1rem; }
+    .cap-grid { grid-template-columns: 1fr; }
+    .process-steps { grid-template-columns: 1fr; }
+    .field-grid { grid-template-columns: repeat(2, 1fr); }
+    footer { flex-direction: column; gap: 1.25rem; text-align: center; padding: 2rem 1.5rem; }
+    .footer-links { flex-wrap: wrap; justify-content: center; }
+  }
+
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "KNG Materials Engineering Inc.",
+  "image": "https://www.kngmaterials.com/assets/kng-logo-full.png",
+  "url": "https://www.kngmaterials.com/",
+  "email": "info@kngmaterials.com",
+  "description": "Independent P.Eng. consultancy specializing in corrosion engineering, materials selection, and materials testing design and verification for the chemical processing, energy, and mining industries.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Coquitlam",
+    "addressRegion": "BC",
+    "addressCountry": "CA"
+  },
+  "areaServed": [
+    "Canada", "United States", "Mexico", "Chile",
+    "Morocco", "Madagascar",
+    "Vietnam", "China", "Malaysia", "South Korea", "New Caledonia",
+    "Saudi Arabia",
+    "Portugal", "United Kingdom", "France", "Germany", "Turkey"
+  ]
+}
+</script>
 </head>
 <body>
 
