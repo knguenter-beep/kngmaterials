@@ -1371,7 +1371,7 @@
   // 2. In EmailJS: Email Services → your service → Settings → enable reCAPTCHA
   //    and paste the Secret Key there (EmailJS verifies it server-side)
   // 3. Replace the placeholder below with your Site Key
-  const RECAPTCHA_SITE_KEY = '6LfxylUtAAAAABLBZ2XrJ4N7cOA8IT69-M2GPpYk';
+  const RECAPTCHA_SITE_KEY = '6Lda0lUtAAAAAEHnB75YLVogUODOY4EB_WVV3vBu';
 
   emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
 
@@ -1395,11 +1395,13 @@
     const widgetIdRef = React.useRef(null);
 
     const renderRecaptcha = React.useCallback((node) => {
-      if (node && window.grecaptcha && window.grecaptcha.render) {
-        widgetIdRef.current = window.grecaptcha.render(node, { sitekey: RECAPTCHA_SITE_KEY });
-      } else if (!node) {
-        widgetIdRef.current = null;
-      }
+      if (!node) { widgetIdRef.current = null; return; }
+      if (!window.grecaptcha || !window.grecaptcha.ready) return;
+      window.grecaptcha.ready(() => {
+        if (widgetIdRef.current === null) {
+          widgetIdRef.current = window.grecaptcha.render(node, { sitekey: RECAPTCHA_SITE_KEY });
+        }
+      });
     }, []);
 
     const update = (field) => (e) =>
