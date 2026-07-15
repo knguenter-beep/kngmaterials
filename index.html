@@ -1352,6 +1352,7 @@
 <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
 <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="https://www.google.com/recaptcha/api.js"></script>
 <script type="text/babel">
   // ─── EmailJS config ───────────────────────────────────────────────────────
   // 1. Sign up free at https://www.emailjs.com
@@ -1360,9 +1361,17 @@
   //    {{from_email}}, {{project_type}}, {{message}}. Set To: info@kngmaterials.com
   // 4. Copy your Public Key from Account → API Keys
   // 5. Replace the three placeholder strings below
-  const EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID';
-  const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
-  const EMAILJS_PUBLIC_KEY  = 'YOUR_PUBLIC_KEY';
+  const EMAILJS_SERVICE_ID  = 'service_s0smeb6';
+  const EMAILJS_TEMPLATE_ID = 'template_1wuyivp';
+  const EMAILJS_PUBLIC_KEY  = 'eKx9YdoGrVWsCYCVk';
+
+  // ─── reCAPTCHA config ──────────────────────────────────────────────────────
+  // 1. Create a reCAPTCHA v2 "I'm not a robot" Checkbox key at
+  //    https://www.google.com/recaptcha/admin (add this site's domain(s))
+  // 2. In EmailJS: Email Services → your service → Settings → enable reCAPTCHA
+  //    and paste the Secret Key there (EmailJS verifies it server-side)
+  // 3. Replace the placeholder below with your Site Key
+  const RECAPTCHA_SITE_KEY = '6LfxylUtAAAAABLBZ2XrJ4N7cOA8IT69-M2GPpYk';
 
   emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
 
@@ -1383,9 +1392,23 @@
     });
     const [errors, setErrors]   = React.useState({});
     const [status, setStatus]   = React.useState('idle'); // idle | submitting | success | error
+    const widgetIdRef = React.useRef(null);
+
+    const renderRecaptcha = React.useCallback((node) => {
+      if (node && window.grecaptcha && window.grecaptcha.render) {
+        widgetIdRef.current = window.grecaptcha.render(node, { sitekey: RECAPTCHA_SITE_KEY });
+      } else if (!node) {
+        widgetIdRef.current = null;
+      }
+    }, []);
 
     const update = (field) => (e) =>
       setForm(f => ({ ...f, [field]: e.target.value }));
+
+    const getCaptchaToken = () =>
+      (window.grecaptcha && widgetIdRef.current !== null)
+        ? window.grecaptcha.getResponse(widgetIdRef.current)
+        : '';
 
     const validate = () => {
       const e = {};
@@ -1393,6 +1416,7 @@
       if (!form.email.trim())   e.email   = 'Required';
       else if (!/\S+@\S+\.\S+/.test(form.email)) e.email = 'Invalid email';
       if (!form.message.trim()) e.message = 'Required';
+      if (!getCaptchaToken())   e.recaptcha = 'Please verify you are not a robot';
       return e;
     };
 
@@ -1410,12 +1434,15 @@
           from_email:   form.email,
           project_type: form.type || 'Not specified',
           message:      form.message,
+          'g-recaptcha-response': getCaptchaToken(),
         });
         setStatus('success');
         setForm({ name: '', company: '', email: '', type: '', message: '' });
+        if (window.grecaptcha) window.grecaptcha.reset(widgetIdRef.current);
       } catch (err) {
         console.error(err);
         setStatus('error');
+        if (window.grecaptcha) window.grecaptcha.reset(widgetIdRef.current);
       }
     };
 
@@ -1479,6 +1506,11 @@
             onChange={update('message')}
             placeholder="Describe your environment, materials of concern, and what you need…"
           />
+        </div>
+
+        <div className="form-field">
+          <label>Verification{errors.recaptcha && <span style={{ color: '#c0392b', marginLeft: 6, fontWeight: 400 }}>— {errors.recaptcha}</span>}</label>
+          <div ref={renderRecaptcha}></div>
         </div>
 
         <div className="form-submit">
